@@ -1,5 +1,5 @@
 <?php
-include("header.html"); // ✅ Include header dynamically
+include("header.html"); 
 
 $capitals = [
    "usa" => "washington",
@@ -9,14 +9,9 @@ $capitals = [
    "italy" => "rome"
 ];
 
-// ✅ Prevent "Undefined index" error
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["country"])) {
-    $country = strtolower(trim($_POST["country"])); // Normalize input
-    
-    // ✅ Use null coalescing operator to avoid errors
+    $country = strtolower(trim($_POST["country"])); 
     $capital = $capitals[$country] ?? "not found";
-
-    // ✅ Show styled message
     echo "<div style='margin: 20px auto; width: 50%; padding: 10px; text-align: center; 
                 border-radius: 5px; font-size: 18px; 
                 background-color: " . ($capital == "not found" ? "#ffdddd; color: red; border: 1px solid red;" : "#ddffdd; color: green; border: 1px solid green;") . "'>
@@ -73,4 +68,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["country"])) {
 </body>
 </html>
 
-<?php include("footer.html"); // ✅ Include footer ?>
+<?php include("footer.html"); ?>
